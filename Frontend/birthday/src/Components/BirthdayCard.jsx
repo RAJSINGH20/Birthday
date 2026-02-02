@@ -1,14 +1,15 @@
 import { useLocation } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
+import song from "../assets/happy_birthday.mp3";
 
 const BirthdayCard = () => {
   const { state } = useLocation();
   const { username, imageUrl } = state || {};
 
-  // const playaudio = () => {
-  //   const audio = new Audio(song);
-  //   audio.play();
-  // };
+  const playaudio = () => {
+    const audio = new Audio(song);
+    audio.play();
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 p-6">
@@ -25,7 +26,7 @@ const BirthdayCard = () => {
         {/* PLAY BUTTON */}
         <div className="flex justify-center -mt-6">
           <button className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl active:scale-95">
-            <FaPlay className="text-xl ml-1"  />
+            <FaPlay className="text-xl ml-1" onClick={playaudio} />
           </button>
         </div>
 

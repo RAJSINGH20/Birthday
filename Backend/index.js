@@ -15,10 +15,16 @@ connectdb();
 
 app.use(express.json());
 
-app.use(cors({
-  origin: "*",
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",            // local dev
+      "https://birthday-sfuj.vercel.app/", // frontend vercel
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 
 app.use("/uploads", express.static("uploads"));
