@@ -25,7 +25,7 @@ const BirthdayCard = () => {
         {/* PLAY BUTTON */}
         <div className="flex justify-center -mt-6">
           <button className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl active:scale-95">
-            <FaPlay className="text-xl ml-1" onClick={playaudio} />
+            <FaPlay className="text-xl ml-1"  />
           </button>
         </div>
 

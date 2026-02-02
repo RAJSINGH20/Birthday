@@ -7,6 +7,7 @@ const Name = () => {
   const [username, setUsername] = useState("");
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ const Name = () => {
       formData.append("image", image);
 
       const res = await axios.post(
-        "http://localhost:3000/api/v1/user/register",
+        `${BACKEND_URL}/api/v1/user/register`,
         formData,
         { withCredentials: true }
       );
@@ -27,7 +28,7 @@ const Name = () => {
       navigate("/birthday", {
         state: {
           username: res.data.user.username,
-          imageUrl: `http://localhost:3000/uploads/${res.data.user.image}`,
+          imageUrl: `${BACKEND_URL}/uploads/${res.data.user.image}`,
         },
       });
     } catch (error) {
