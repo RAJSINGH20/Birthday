@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
-import song from "../Assets/birthday-song.mp3.mp3";
+import song from "../Assets/birthday-song.mp3";
 
 const BirthdayCard = () => {
   const { state } = useLocation();
