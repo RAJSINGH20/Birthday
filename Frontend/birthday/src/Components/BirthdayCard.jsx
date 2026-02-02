@@ -1,15 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
-import song from "../../public/birthday_song.mp3";
 
 const BirthdayCard = () => {
   const { state } = useLocation();
   const { username, imageUrl } = state || {};
 
-  const playaudio = () => {
-    const audio = new Audio(song);
-    audio.play();
-  };
+  // const playaudio = () => {
+  //   const audio = new Audio(song);
+  //   audio.play();
+  // };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 p-6">
