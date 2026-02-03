@@ -5,6 +5,8 @@ import express from "express";
 import cors from "cors";
 import userRoutes from "./Routes/User.Routes.js";
 import connectdb from "./db/db.js";
+import dns from 'node:dns/promises';
+dns.setServers(['1.1.1.1', '8.8.8.8']); 
 
 const app = express();
 
@@ -15,16 +17,10 @@ connectdb();
 
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",            // local dev
-      "https://birthday-sfuj.vercel.app/", // frontend vercel
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-  })
-);
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
 
 
 app.use("/uploads", express.static("uploads"));
